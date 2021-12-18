@@ -1,0 +1,15 @@
+.admin-container {
+  width: 100%;
+}
+.sidebar {
+  background: lightcoral;
+  color: white;
+  text-align: center;
+  width: 10%;
+  min-height: 100vh;
+}
+.sidebar ul li {
+  list-style: none;
+  cursor: pointer;
+  margin: 2rem 0;
+}

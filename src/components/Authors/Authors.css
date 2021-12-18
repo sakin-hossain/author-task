@@ -1,0 +1,28 @@
+.authors-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+.author {
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 0.75rem 0;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.author a {
+  text-decoration: none;
+}
+.pagination span {
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+.pagination span i {
+  margin: 0 1.5rem;
+  cursor: pointer;
+}
