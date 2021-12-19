@@ -3,8 +3,9 @@ import { getDb, removeFromDb } from '../../localStorage/localStorage';
 
 const FavAuthor = ({authors}) => {
     const [author, setAuthor] = useState([]);
-    const savedDb = getDb();
+
     useEffect(()=>{
+        const savedDb = getDb();
         const saveAuthor = [];
         for(const favId in savedDb){
             const author = authors.find(at => at._id === favId)
