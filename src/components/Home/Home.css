@@ -13,3 +13,9 @@
   cursor: pointer;
   margin: 2rem 0;
 }
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    min-height: 5vh;
+  }
+}

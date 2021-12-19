@@ -1,0 +1,20 @@
+.author-container {
+  text-align: center;
+}
+.author-container h5 {
+  font-weight: 400;
+  margin: 1rem;
+}
+.author-container blockquote {
+  border-left: 2px solid gray;
+  background: whitesmoke;
+  padding: 1rem;
+}
+.author-container p {
+  padding: 1rem 0;
+}
+.author-container a {
+  text-decoration: none;
+  font-weight: 600;
+  color: cadetblue;
+}

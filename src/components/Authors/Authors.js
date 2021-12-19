@@ -1,32 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import "./Authors.css";
-const Authors = () => {
-    const [authors, setAuthors] = useState([]);
-    const [fav, setFav] = useState(false);
-    const [pageCount, setPageCount] = useState(0);
-    const [page, setPage] = useState(1);
-    const [isLoading, setIsLoading] = useState(true);
-    useEffect(()=>{
-        fetch(`https://api.quotable.io/authors?limit=10&page=${page}`)
-        .then(res => res.json())
-        .then(data => {
-            setAuthors(data.results)
-            const totalCount = data.totalCount;
-            const pageNumber = Math.ceil(totalCount / data.count);
-            setPageCount(pageNumber);
-            setIsLoading(false)
-        });
-    }, [page]);
-    const handleAddToFav = (e) => {
-        setFav(e.target.checked);
-    }
-    const handleDecrease = () => {
-        setPage(page-1);
-    }
-    const handleIncrease = () => {
-        setPage(page+1);
-    }
+
+
+const Authors = (props) => {
+    const {isLoading, authors, handleAddFav, handleDecrease, page, handleIncrease} = props;
+
     if(isLoading){
         return(
             <div className='text-center'>
@@ -42,10 +22,21 @@ const Authors = () => {
                     authors.map(author=> <div
                     key={author._id}
                     className='author'>
-                        <h4>{author.name}</h4>
-                        <p>{author.bio} <a href={author.link}>see more ...</a></p>
-                        <input type="checkbox" onChange={handleAddToFav}/>
-                    </div>)
+                        <div className='row mb-4'>
+                            <div className='col-md-8 col-sm-12'>
+                                <h4>{author.name}</h4>
+                            </div>
+                            <div className='col-md-4 col-sm-12'>
+                                <input type="checkbox" onChange={()=>handleAddFav(author)}/>
+                                <span> Add to Favorite</span>
+                            </div>
+                        </div>
+                        <p>{author.bio}</p>
+                        <Link to={`/${author._id}`}>
+                            <button className='btn-regular'>More Details</button>
+                        </Link>
+                    </div>
+                    )
                 }
             </div>
             <div className='pagination'>
